@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Porsche 911 Carrera S — The Legend Reimagined</title>
+    <meta name="description"
+        content="Official cinematic digital experience of the Porsche 911 Carrera S. Interactive drag-to-reveal, 5 generations heritage, mechanical anatomy, and interactive 3D studio with authentic Porsche audio.">
+
+    <!-- Typography: 21st.dev Zen Shades Theme + UI/UX Pro Max Pairing -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="theme-white">
+
+    <!-- Audio Status Indicator Pill -->
+    <div id="sound-indicator" class="sound-indicator" title="Audio Status">
+        <span class="sound-wave"></span>
+        <span class="sound-wave"></span>
+        <span class="sound-wave"></span>
+        <span class="sound-label" id="sound-status-text">AUDIO READY</span>
+    </div>
+
+    <!-- Navigation Header with TOP-RIGHT PORSCHE BRANDING (Matching Image 1) -->
+    <header id="site-header">
+        <nav class="header-nav">
+            <a href="#hero" class="nav-item">Reveal</a>
+            <a href="#looping-section" class="nav-item">Cinematic</a>
+            <a href="#details-section" class="nav-item">Performance</a>
+            <a href="#model-section" class="nav-item">3D Studio</a>
+            <a href="#generations-section" class="nav-item">Generations</a>
+            <a href="#engine-section" class="nav-item">Engineering</a>
+        </nav>
+
+        <!-- Top-Right Porsche Crest + Official Wordmark (Image 1 Reference) -->
+        <div class="header-brand-right">
+            <a href="#hero" class="brand-link" aria-label="Porsche Official">
+                <!-- High-Resolution Porsche Crest SVG -->
+                <svg class="porsche-crest-svg" viewBox="0 0 100 120" width="22" height="26">
+                    <defs>
+                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#E5C158" />
+                            <stop offset="50%" stop-color="#C59B27" />
+                            <stop offset="100%" stop-color="#8F6A10" />
+                        </linearGradient>
+                        <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#E01A22" />
+                            <stop offset="100%" stop-color="#9E0C12" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Shield outline -->
+                    <path d="M 50 2 C 80 2 96 15 96 35 C 96 75 75 105 50 118 C 25 105 4 75 4 35 C 4 15 20 2 50 2 Z"
+                        fill="url(#goldGrad)" stroke="#111111" stroke-width="2.5" />
+                    <!-- Inner shield divider -->
+                    <path d="M 50 22 L 50 114 M 6 52 L 94 52" stroke="#111111" stroke-width="2" />
+                    <!-- Red and Black stripes -->
+                    <rect x="12" y="24" width="34" height="24" fill="url(#redGrad)" />
+                    <rect x="54" y="56" width="34" height="26" fill="url(#redGrad)" />
+                    <rect x="18" y="24" width="8" height="24" fill="#111111" />
+                    <rect x="30" y="24" width="8" height="24" fill="#111111" />
+                    <rect x="60" y="56" width="8" height="26" fill="#111111" />
+                    <rect x="72" y="56" width="8" height="26" fill="#111111" />
+                    <!-- Antlers top right & bottom left -->
+                    <path d="M 58 30 Q 70 26 84 32 M 58 38 Q 72 34 86 40 M 58 46 Q 70 42 82 48" stroke="#111111"
+                        stroke-width="2" fill="none" />
+                    <path d="M 14 62 Q 26 58 40 64 M 14 70 Q 28 66 42 72 M 14 78 Q 26 74 38 80" stroke="#111111"
+                        stroke-width="2" fill="none" />
+                    <!-- Center inescutcheon (Stuttgart horse shield) -->
+                    <path d="M 40 45 C 40 42 60 42 60 45 C 60 62 55 70 50 74 C 45 70 40 62 40 45 Z"
+                        fill="url(#goldGrad)" stroke="#111111" stroke-width="1.5" />
+                    <circle cx="50" cy="54" r="3.5" fill="#111111" />
+                    <!-- PORSCHE text arch at top -->
+                    <path d="M 22 16 Q 50 10 78 16" fill="none" stroke="#111111" stroke-width="3" />
+                </svg>
+                <!-- Official Porsche Wordmark (Image 1) -->
+                <img src="porsche-wordmark.png" alt="PORSCHE" class="porsche-brand-wordmark-img" width="125"
+                    height="13">
+            </a>
+        </div>
+    </header>
+
+    <main id="smooth-wrapper">
+
+        <!-- ===================================================================
+             SECTION 01: 1ST ANIMATION SCROLLING EXPERIENCE
+             (299-Frame Canvas Scrubbing · Pure Car Visual · Zero Obstruction)
+             =================================================================== -->
+        <section id="hero" class="hero-scroll-section">
+            <div class="hero-scroll-sticky">
+                <div class="hero-canvas-viewport">
+                    <canvas id="hero-scroll-canvas" class="hero-scroll-canvas"></canvas>
+
+                    <!-- Editorial Typography Overlay (Bottom Tagline & Scroll Prompt) -->
+                    <div class="hero-editorial-overlay" id="hero-editorial-overlay">
+                        <!-- Bottom-Center: Clean Interactive Scroll Prompt -->
+                        <div class="editorial-bottom-center" id="editorial-bottom-center">
+                            <div class="hero-scroll-prompt">
+                                <span class="prompt-mouse"><span class="prompt-wheel"></span></span>
+                                <span class="prompt-text">SCROLL TO ANIMATE</span>
+                            </div>
+                        </div>
+
+                        <!-- Bottom-Right: Refined Heritage Disclaimer Badge -->
+                        <div class="editorial-bottom-right" id="editorial-bottom-right">
+                            <span class="editorial-fineprint">Porsche 911 Carrera S · Engineered in Stuttgart</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategic Peripheral Specifications Row (Below Animation) -->
+            <div class="section-wrap hero-specs-wrap">
+                <div class="hero-spec-strip">
+                    <div class="strip-item">
+                        <span class="strip-val">3.0L TWIN-TURBO</span>
+                        <span class="strip-lbl">Flat-Six Boxer Architecture</span>
+                    </div>
+                    <div class="strip-item">
+                        <span class="strip-val">480 PS / 530 NM</span>
+                        <span class="strip-lbl">BorgWarner Turbo Induction</span>
+                    </div>
+                    <div class="strip-item">
+                        <span class="strip-val">0–100 KM/H IN 3.3S</span>
+                        <span class="strip-lbl">Sport Chrono Acceleration</span>
+                    </div>
+                    <div class="strip-item">
+                        <span class="strip-val">REAR-WHEEL DRIVE</span>
+                        <span class="strip-lbl">8-Speed PDK Transmission</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             SECTION 02: CONTINUOUS CINEMATIC LOOP (SEAMLESS REPAIRED LOOP)
+             =================================================================== -->
+        <section id="looping-section" class="cinematic-loop-section">
+            <div class="section-wrap">
+                <div class="section-header-center">
+                    <span class="section-tag-kicker">ATMOSPHERIC PERSPECTIVE</span>
+                    <h2 class="section-headline">Continuous Light Signature</h2>
+                    <p class="section-subhead">Seamless rear aerodynamic illumination through wet-asphalt mist.</p>
+                </div>
+
+                <!-- Seamless Canvas Loop Frame (Ping-Pong / Bidirectional 0-Glitch) -->
+                <div class="loop-showcase-frame">
+                    <canvas id="loop-canvas" class="loop-canvas" width="860" height="480"></canvas>
+                </div>
+                <p class="showcase-caption">Full-width LED lightbar with integrated third brake light and active cooling
+                    vents.</p>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             SECTION 03: PREMIUM EDITORIAL CAR DETAILS
+             =================================================================== -->
+        <section id="details-section" class="editorial-details-section">
+            <div class="section-wrap">
+                <header class="editorial-header">
+                    <span class="section-tag-kicker">TECHNICAL MASTERCLASS</span>
+                    <h2 class="editorial-title">Pure Porsche Engineering.<br>Zero Compromise.</h2>
+                    <p class="editorial-narrative">
+                        The 992.2 represents the zenith of the Carrera S lineage. With a comprehensively re-engineered
+                        2,981 cc twin-turbo flat-six, it pairs race-honed BorgWarner induction with surgical rear-wheel
+                        drive dynamics.
+                    </p>
+                </header>
+
+                <div class="editorial-divider-line"></div>
+
+                <div class="editorial-spec-grid">
+                    <div class="editorial-spec-col">
+                        <div class="metric-val">480<span class="metric-unit">PS</span></div>
+                        <div class="metric-name">Maximum Power</div>
+                        <p class="metric-sub">473 hp @ 6,500 rpm with a 7,500 rpm redline.</p>
+                    </div>
+
+                    <div class="editorial-spec-col">
+                        <div class="metric-val">530<span class="metric-unit">Nm</span></div>
+                        <div class="metric-name">Peak Torque</div>
+                        <p class="metric-sub">Broad torque plateau between 2,200 and 6,000 rpm for relentless
+                            acceleration.</p>
+                    </div>
+
+                    <div class="editorial-spec-col">
+                        <div class="metric-val">3.3<span class="metric-unit">s</span></div>
+                        <div class="metric-name">0–100 km/h</div>
+                        <p class="metric-sub">Launch Control enabled via standard Sport Chrono Package.</p>
+                    </div>
+
+                    <div class="editorial-spec-col">
+                        <div class="metric-val">308<span class="metric-unit">km/h</span></div>
+                        <div class="metric-name">Top Track Speed</div>
+                        <p class="metric-sub">Aerodynamically balanced rear wing with active dual-position flap
+                            actuation.</p>
+                    </div>
+
+                    <div class="editorial-spec-col">
+                        <div class="metric-val">157<span class="metric-unit">hp/L</span></div>
+                        <div class="metric-name">Specific Output</div>
+                        <p class="metric-sub">Exceptional thermal efficiency from Turbo-derived top-mounted intercooler.
+                        </p>
+                    </div>
+
+                    <div class="editorial-spec-col">
+                        <div class="metric-val">1,553<span class="metric-unit">kg</span></div>
+                        <div class="metric-name">Curb Weight (DIN)</div>
+                        <p class="metric-sub">Optimized 3.28 kg/hp power-to-weight ratio delivering surgical agility.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             SECTION 04: INTERACTIVE PORSCHE 3D STUDIO (ORIGINAL MP3 AUDIO)
+             =================================================================== -->
+        <section id="model-section" class="interactive-glb-section">
+            <div class="section-wrap">
+                <div class="section-header-center">
+                    <span class="section-tag-kicker">3D INTERACTIVE STUDIO</span>
+                    <h2 class="section-headline">Porsche 911 Carrera S</h2>
+                    <p class="section-subhead">DRAG TO ROTATE 360° · SCROLL TO ZOOM · AUTHENTIC FLAT-SIX AUDIO</p>
+                </div>
+
+                <!-- Proportionate 3D Showcase Viewport -->
+                <div class="glb-viewport-wrapper">
+                    <div class="glb-viewport" id="glb-viewport">
+                        <canvas id="three-canvas"></canvas>
+
+                        <!-- 3D Studio Loader -->
+                        <div id="glb-loader" class="glb-loader">
+                            <div class="glb-spinner"></div>
+                            <div class="glb-load-text">PREPARING 3D GEOMETRY…</div>
+                        </div>
+                    </div>
+
+                    <!-- Telemetry HUD Overlay (Apple-Inspired Light Glassmorphism) -->
+                    <div class="telemetry-hud" id="telemetry-hud">
+                        <div class="tacho-dial">
+                            <svg class="tacho-svg" viewBox="0 0 120 120">
+                                <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="4" />
+                                <circle id="tacho-arc" cx="60" cy="60" r="48" fill="none" stroke="#d5001c"
+                                    stroke-width="4" stroke-dasharray="301.59" stroke-dashoffset="301.59" />
+                            </svg>
+                            <div class="tacho-center">
+                                <div class="tacho-rpm-num" id="hud-rpm">0</div>
+                                <div class="tacho-rpm-label">RPM</div>
+                            </div>
+                        </div>
+                        <div class="tacho-meta">
+                            <div class="tele-row"><span class="tele-k">DRIVE:</span><span class="tele-v"
+                                    id="hud-drive">RWD ACTIVE</span></div>
+                            <div class="tele-row"><span class="tele-k">STATUS:</span><span class="tele-v"
+                                    id="hud-status">ENGINE OFF</span></div>
+                            <div class="tele-row"><span class="tele-k">LIGHTS:</span><span class="tele-v"
+                                    id="hud-lights">OFF</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Translucent Apple-Inspired Control Interface -->
+                    <div class="translucent-controls-bar">
+                        <div class="control-glass-pill">
+                            <!-- Engine Start Button (Procedural Flat-Six Audio Engine) -->
+                            <button id="btn-start" class="pill-btn pill-btn-primary" aria-label="Start Engine">
+                                <span class="btn-icon">⚡</span>
+                                <span class="btn-label" id="btn-start-label">START ENGINE</span>
+                            </button>
+
+                            <!-- Accelerate Button (Hold to Rev Engine & Spin Rear Wheels) -->
+                            <button id="btn-accelerate" class="pill-btn pill-btn-accent"
+                                aria-label="Hold to Accelerate">
+                                <span class="btn-icon">▲</span>
+                                <span class="btn-label">HOLD TO REV</span>
+                            </button>
+
+                            <!-- Nanotech Finish Swatches -->
+                            <div class="palette-group">
+                                <span class="palette-label">FINISH:</span>
+                                <div class="color-swatches" id="color-swatches">
+                                    <button class="swatch-btn active" data-color="#d5001c" title="Guards Red"
+                                        style="--c:#d5001c"></button>
+                                    <button class="swatch-btn" data-color="#102a45" title="Gentian Blue Metallic"
+                                        style="--c:#102a45"></button>
+                                    <button class="swatch-btn" data-color="#a4aab0" title="GT Silver Metallic"
+                                        style="--c:#a4aab0"></button>
+                                    <button class="swatch-btn" data-color="#eab308" title="Racing Yellow"
+                                        style="--c:#eab308"></button>
+                                    <button class="swatch-btn" data-color="#111315" title="Jet Black Metallic"
+                                        style="--c:#111315"></button>
+                                    <button class="swatch-btn swatch-nanotech" data-color="nanotech"
+                                        title="Nanotechnology Shade-Shift"
+                                        style="--c:linear-gradient(135deg,#3b82f6,#ec4899,#d5001c)"></button>
+                                </div>
+                            </div>
+
+                            <!-- Reset Camera Button -->
+                            <button id="btn-reset" class="pill-btn pill-btn-secondary" aria-label="Reset View">
+                                <span class="btn-icon">↺</span>
+                                <span class="btn-label">RESET</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             SECTION 05: FIVE GENERATIONS. ONE LEGACY. (ZIG-ZAG LAYOUT)
+             (Complete Whole-Image Slide Interaction — NEVER SPLIT IN HALF!)
+             =================================================================== -->
+        <section id="generations-section" class="zigzag-generations-section">
+            <div class="section-wrap">
+                <div class="section-header-center">
+                    <span class="section-tag-kicker">HERITAGE TIMELINE</span>
+                    <h2 class="section-headline">Five Generations. One Silhouette.</h2>
+                    <p class="section-subhead">Hover or tap any generation to smoothly slide the car aside and reveal
+                        its engineering milestones.</p>
+                </div>
+
+                <div class="zigzag-stack">
+
+                    <!-- GENERATION 01 — RIGHT ALIGNED -->
+                    <article class="zigzag-item zigzag-right" data-gen="1">
+                        <div class="zigzag-card">
+                            <!-- Solid Complete Image Frame (Slides sideways as ONE complete piece!) -->
+                            <div class="solid-visual-frame">
+                                <img src="porsche 911carrera s all generation imges/1st generation.jpg"
+                                    alt="Porsche 993 Carrera S" class="solid-car-image">
+                                <div class="card-era-badge">GEN 01 · 1997–1998</div>
+                            </div>
+
+                            <!-- Historical Typography Content Revealed in Opened Space -->
+                            <div class="zigzag-content-body">
+                                <span class="gen-era">1997 – 1998</span>
+                                <h3 class="gen-code">993 Carrera S</h3>
+                                <div class="gen-pill-badge">The Final Air-Cooled Icon</div>
+                                <div class="gen-quick-specs">
+                                    <span>3.6L NA Air-Cooled</span> · <span>285 PS</span> · <span>340 Nm</span> ·
+                                    <span>0–100 in 5.3s</span> · <span>273 km/h</span>
+                                </div>
+                                <p class="gen-narrative">
+                                    Produced exclusively in 1997–1998, the 993 Carrera S represents the ultimate and
+                                    final expression of the air-cooled 911. Powered by a 3.6-litre naturally aspirated
+                                    flat-six paired with a 6-speed manual or 4-speed Tiptronic S in rear-wheel drive, it
+                                    stands as the most prized generation among purists worldwide.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- GENERATION 02 — LEFT ALIGNED -->
+                    <article class="zigzag-item zigzag-left" data-gen="2">
+                        <div class="zigzag-card">
+                            <!-- Solid Complete Image Frame -->
+                            <div class="solid-visual-frame">
+                                <img src="porsche 911carrera s all generation imges/2nd generation.jpg"
+                                    alt="Porsche 996 Carrera 4S" class="solid-car-image">
+                                <div class="card-era-badge">GEN 02 · 1999–2005</div>
+                            </div>
+
+                            <!-- Historical Typography Content -->
+                            <div class="zigzag-content-body">
+                                <span class="gen-era">1999 – 2005</span>
+                                <h3 class="gen-code">996 Carrera 4S</h3>
+                                <div class="gen-pill-badge">The Water-Cooled Revolution</div>
+                                <div class="gen-quick-specs">
+                                    <span>3.6L Water-Cooled</span> · <span>320 PS</span> · <span>380 Nm</span> ·
+                                    <span>0–100 in 5.0s</span> · <span>280 km/h</span>
+                                </div>
+                                <p class="gen-narrative">
+                                    The 996 marked Porsche’s historic transition into water-cooled flat-six
+                                    architecture. Carrying the revered Carrera 4S moniker, the MkII featured an
+                                    all-wheel-drive powertrain, wide Turbo body shell, and 320 PS, rewriting high-speed
+                                    stability benchmarks despite its controversial "fried egg" headlights.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- GENERATION 03 — RIGHT ALIGNED -->
+                    <article class="zigzag-item zigzag-right" data-gen="3">
+                        <div class="zigzag-card">
+                            <!-- Solid Complete Image Frame -->
+                            <div class="solid-visual-frame">
+                                <img src="porsche 911carrera s all generation imges/3rd generation.jpg"
+                                    alt="Porsche 997 Carrera S" class="solid-car-image">
+                                <div class="card-era-badge">GEN 03 · 2005–2012</div>
+                            </div>
+
+                            <!-- Historical Typography Content -->
+                            <div class="zigzag-content-body">
+                                <span class="gen-era">2005 – 2012</span>
+                                <h3 class="gen-code">997 Carrera S</h3>
+                                <div class="gen-pill-badge">Classic Proportions & PDK Debut</div>
+                                <div class="gen-quick-specs">
+                                    <span>3.8L DFI Flat-Six</span> · <span>385 PS</span> · <span>420 Nm</span> ·
+                                    <span>0–100 in 4.3s</span> · <span>301 km/h</span>
+                                </div>
+                                <p class="gen-narrative">
+                                    Iconic round headlamps returned with the 997. The MkII (997.2) introduced Direct
+                                    Fuel Injection (DFI) and the world-first 7-speed PDK dual-clutch transmission,
+                                    enabling rapid gear switches, sub-4.3s sprint times, and legendary reliability that
+                                    cemented modern Carrera S pedigree.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- GENERATION 04 — LEFT ALIGNED -->
+                    <article class="zigzag-item zigzag-left" data-gen="4">
+                        <div class="zigzag-card">
+                            <!-- Solid Complete Image Frame -->
+                            <div class="solid-visual-frame">
+                                <img src="porsche 911carrera s all generation imges/4th generation.jpg"
+                                    alt="Porsche 991 Carrera S" class="solid-car-image">
+                                <div class="card-era-badge">GEN 04 · 2012–2019</div>
+                            </div>
+
+                            <!-- Historical Typography Content -->
+                            <div class="zigzag-content-body">
+                                <span class="gen-era">2012 – 2019</span>
+                                <h3 class="gen-code">991 Carrera S</h3>
+                                <div class="gen-pill-badge">Final NA to Twin-Turbo Era</div>
+                                <div class="gen-quick-specs">
+                                    <span>3.0L Twin-Turbo</span> · <span>450 PS</span> · <span>530 Nm</span> ·
+                                    <span>0–100 in 3.7s</span> · <span>308 km/h</span>
+                                </div>
+                                <p class="gen-narrative">
+                                    A pivotal transition. The 991.1 was the final naturally aspirated Carrera S (3.8L,
+                                    400 PS). The 991.2 ushered in standard twin-turbocharging, surging torque from 440
+                                    to 530 Nm. Its wider track, electric steering precision, and rear-axle steering
+                                    created a benchmark everyday supercar.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- GENERATION 05 — RIGHT ALIGNED -->
+                    <article class="zigzag-item zigzag-right" data-gen="5">
+                        <div class="zigzag-card">
+                            <!-- Solid Complete Image Frame -->
+                            <div class="solid-visual-frame">
+                                <img src="porsche 911carrera s all generation imges/5th generation.jpg"
+                                    alt="Porsche 992 Carrera S" class="solid-car-image">
+                                <div class="card-era-badge">GEN 05 · 2019–PRESENT</div>
+                            </div>
+
+                            <!-- Historical Typography Content -->
+                            <div class="zigzag-content-body">
+                                <span class="gen-era">2019 – Present</span>
+                                <h3 class="gen-code">992 Carrera S</h3>
+                                <div class="gen-pill-badge">The Most Powerful Carrera S Ever</div>
+                                <div class="gen-quick-specs">
+                                    <span>3.0L Twin-Turbo (992.2)</span> · <span>480 PS</span> · <span>530 Nm</span> ·
+                                    <span>0–100 in 3.3s</span> · <span>308 km/h</span>
+                                </div>
+                                <p class="gen-narrative">
+                                    The pinnacle of 60 years of development. The current 992.2 delivers 480 PS (473 bhp)
+                                    exclusively through an 8-speed PDK transmission with BorgWarner turbos and
+                                    top-mounted intercooler. Equipped with PASM, PTV Plus, and 408mm GTS front brakes,
+                                    it is the most refined and rapid Carrera S in history.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             SECTION 06: EXPLODED ENGINE SCROLL EXPERIENCE
+             (Mechanical Anatomy · Floating Editorial Typography · Zero Cards)
+             =================================================================== -->
+        <section id="engine-section" class="exploded-engine-experience">
+            <div class="engine-sticky-viewport">
+                <!-- Heading Above the Animation Container (Editorial Serif Typography) -->
+                <h2 class="engine-main-heading">Mechanical Anatomy</h2>
+
+                <!-- Main Technical Animation Stage (1180px x 640px) -->
+                <div class="section-wrap engine-wrap">
+                    <!-- Proportionate Technical Frame -->
+                    <div class="engine-display-chamber">
+                        <canvas id="engine-canvas" class="engine-canvas"></canvas>
+                    </div>
+
+                    <!-- Floating Typography Layer (Zero Cards · Pure Architectural Annotations) -->
+                    <div class="engine-editorial-layer">
+                        <!-- Left Side Technical Floating Callouts -->
+                        <div class="engine-callouts-col callouts-left">
+                            <div class="callout-card callout-1" data-frame-start="0.05" data-frame-end="0.45">
+                                <span class="callout-num">01 / INDUCTION</span>
+                                <h4 class="callout-title">Twin BorgWarner Turbos</h4>
+                                <p class="callout-desc">Upgraded BorgWarner turbochargers and Turbo-derived top-mounted
+                                    intercooler generating +30 hp over 992.1.</p>
+                                <span class="callout-line"></span>
+                            </div>
+
+                            <div class="callout-card callout-2" data-frame-start="0.30" data-frame-end="0.75">
+                                <span class="callout-num">02 / COMBUSTION</span>
+                                <h4 class="callout-title">2,981 cc Boxer Architecture</h4>
+                                <p class="callout-desc">91.0 × 76.4 mm bore-and-stroke, 24-valve DOHC head with
+                                    high-precision direct fuel injection.</p>
+                                <span class="callout-line"></span>
+                            </div>
+
+                            <div class="callout-card callout-3" data-frame-start="0.60" data-frame-end="0.98">
+                                <span class="callout-num">03 / LUBRICATION</span>
+                                <h4 class="callout-title">Integrated Dry-Sump</h4>
+                                <p class="callout-desc">Multi-stage oil scavenger pumps maintain flawless oil pressure
+                                    through high lateral G-forces up to 7,500 rpm redline.</p>
+                                <span class="callout-line"></span>
+                            </div>
+                        </div>
+
+                        <!-- Right Side Technical Floating Callouts -->
+                        <div class="engine-callouts-col callouts-right">
+                            <div class="callout-card callout-4" data-frame-start="0.10" data-frame-end="0.50">
+                                <span class="callout-num">04 / DRIVETRAIN</span>
+                                <h4 class="callout-title">8-Speed PDK Dual-Clutch</h4>
+                                <p class="callout-desc">Millisecond gear swaps driving the rear wheels. Integrated
+                                    electronic limited-slip differential with PTV Plus.</p>
+                                <span class="callout-line"></span>
+                            </div>
+
+                            <div class="callout-card callout-5" data-frame-start="0.35" data-frame-end="0.80">
+                                <span class="callout-num">05 / THERMODYNAMICS</span>
+                                <h4 class="callout-title">10.2:1 Compression</h4>
+                                <p class="callout-desc">Wide 2,200–6,000 rpm torque plateau generating 530 Nm for
+                                    immediate throttle response.</p>
+                                <span class="callout-line"></span>
+                            </div>
+
+                            <div class="callout-card callout-6" data-frame-start="0.65" data-frame-end="0.99">
+                                <span class="callout-num">06 / SPECIFIC OUTPUT</span>
+                                <h4 class="callout-title">157 HP Per Litre</h4>
+                                <p class="callout-desc">480 PS (473 hp) yielding a remarkable power-to-weight ratio of
+                                    3.28 kg/hp in a 1,553 kg package.</p>
+                                <span class="callout-line"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Heading Below the Animation Container (Editorial Serif Typography) -->
+                <h3 class="engine-sub-heading">3.0-liter flat-6 engine</h3>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             FOOTER (DARK PORSCHE 911 WORDMARK & USER EMAIL ADDRESS)
+             =================================================================== -->
+        <footer id="site-footer">
+            <div class="section-wrap footer-wrap">
+                <div class="footer-top">
+                    <!-- Official Porsche Wordmark (Image 1 Reference) + Model Title -->
+                    <img src="porsche-wordmark.png" alt="PORSCHE" class="footer-porsche-wordmark-img" width="220"
+                        height="22">
+                    <div class="footer-brand-huge">911 CARRERA S</div>
+                    <div class="footer-quote">
+                        “One ride and you'll understand why most rocket scientists are German.”
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="footer-copy">
+                        © 2026 Porsche 911 Carrera S Interactive Experience.
+                    </div>
+                    <!-- User's Official Contact Email -->
+                    <div class="footer-contact">
+                        <span class="contact-lbl">Inquiries:</span>
+                        <a href="mailto:yevhendeveloper877@gmail.com"
+                            class="footer-email-link">yevhendeveloper877@gmail.com</a>
+                    </div>
+                    <div class="footer-disclaimer">
+                        Porsche, 911, Carrera S, PDK and PASM are registered trademarks of Dr. Ing. h.c. F. Porsche AG.
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+    <!-- Core Interactive Experience Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
